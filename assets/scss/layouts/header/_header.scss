@@ -14,16 +14,64 @@
 
 .header {
     background-color: $header-bg;
-    border-bottom: container("border");
-    position: fixed;
-    top: 0;
+    border-bottom: 1px solid #cccccc;
+    height: 47px;
+    position: relative;
+    display: block;
     width: 100%;
     z-index: zIndex("low");
+    .store-logo {
+        padding: 3px 0 3px 3px;
+        display: block;
+        float: left;
+        z-index: 200;
+        //padding: 3px 0;
+    }
+    .search {
+        display: none;
+    }
 
     @include breakpoint("medium") {
-        border-bottom: container("border");
+        height: 59px;
         overflow: visible;
-        position: relative;
+        clear: both;
+        min-width: 900px;
+        .store-logo {
+            padding: 5px 0 5px 5px;
+            img {
+                height: 43px;
+            }
+        }
+        .search {
+            min-width: 50px;
+            //margin-top: 8px;
+            display: block;
+            //float: left;
+            .container {
+                margin: 0;
+                padding: 0 0 0 0;
+                width: 100%;
+                max-width: inherit;
+
+            }
+            .quickSearchResults {
+                position: relative;
+                top: -12px;
+                background: #cccccc;
+                .productGrid {
+                    padding-top: 40px;
+                }
+            }
+            .form-field {
+                margin: 8px 0 0 10px;
+            }
+            .form-input {
+                box-sizing:border-box;
+                -moz-box-sizing:border-box;
+                width: 100%;
+                //max-width: 300px;
+            }
+        }
     }
 
     &.is-open {
@@ -157,11 +205,12 @@
     @include square($header-toggle-width);
     display: inline-block;
     font-size: 0;
-    left: 0;
+    right: 0;
     overflow: hidden;
     padding: 0 remCalc(18);
     position: absolute;
     z-index: zIndex("high");
+    top: -3px;
 
     @include breakpoint("medium") {
         display: none;

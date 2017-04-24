@@ -14,6 +14,16 @@
 
 .card-figure {
     margin-top: $card-figure-marginTop;
+    height: 175px;
+    text-align: center;
+    white-space: nowrap;
+
+    a {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 175px;
+        width: 100%;
+    }
 
     &:hover {
 
@@ -40,11 +50,22 @@
     transform: translate3d(0, -50%, 0); // 2
 }
 
+.card-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
 .card-image {
     border: 0;
-    display: flex;
+    line-height: 175px;
+    max-height: 175px;
+    display: inline-block;
     margin: auto;
     width: auto;
+    vertical-align: middle;
+//    max-width: 263px;
+//    max-height: 175px;
 }
 
 .card-title {
@@ -64,11 +85,14 @@
 
 .card-text {
     margin-bottom: $card-text-marginBottom;
-
+    font-size: 15px;
     abbr {
         border: 0;
         color: inherit;
         font-size: inherit;
+    }
+    &.brand-name {
+        font-weight: 600;
     }
 }
 
@@ -90,6 +114,10 @@
 .card-body {
     text-align: center;
 
+    .price--withoutTax {
+        color: $color-priceBase;
+        font-weight: 600;
+    }
     @include breakpoint("small") {
         text-align: left;
     }

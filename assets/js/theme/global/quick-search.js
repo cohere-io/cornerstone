@@ -4,7 +4,7 @@ import utils from '@bigcommerce/stencil-utils';
 import StencilDropDown from './stencil-dropdown';
 
 export default function () {
-    const TOP_STYLING = 'top: 49px;';
+    const TOP_STYLING = 'top: 25px;';
     const $quickSearchResults = $('.quickSearchResults');
     const $quickSearchDiv = $('#quickSearch');
     const $searchQuery = $('#search_query');
@@ -24,7 +24,9 @@ export default function () {
         // If the target element has this data tag or one of it's parents, do not close the search results
         // We have to specify `.modal-background` because of limitations around Foundation Reveal not allowing
         // any modification to the background element.
-        if ($(e.target).closest('[data-prevent-quick-search-close], .modal-background').length === 0) {
+        if ($(e.target).parent().hasClass('modal-close')) {
+            $quickSearchResults.html('');
+        } else if ($(e.target).closest('[data-prevent-quick-search-close], .modal-background').length === 0) {
             stencilDropDown.hide($container);
         }
     };
@@ -35,7 +37,6 @@ export default function () {
             if (err) {
                 return false;
             }
-
             $quickSearchResults.html(response);
         });
     }, 200);
@@ -45,6 +46,7 @@ export default function () {
 
         // server will only perform search with at least 3 characters
         if (searchQuery.length < 3) {
+            $quickSearchResults.html('');
             return;
         }
 

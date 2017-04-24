@@ -24,23 +24,34 @@
             </li>
             <li class="navUser-item navUser-item--divider">|</li>
         {{/if}}
+        <li class="navUser-item navUser-item--call">
+            CALL <a href="tel:1-866-513-3360">866-513-3360</a>
+        </li>
+        <li class="navUser-item navUser-item--email">
+            EMAIL <a href="mailto:cycling@glorycycles.com">cycling@glorycycles.com</a>
+        </li>
+        <li class="navUser-item navUser-item--divider">|</li>
         <li class="navUser-item">
             <a class="navUser-action navUser-action--quickSearch" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">{{lang 'common.search'}}</a>
         </li>
+        <!--
         {{#if settings.gift_certificates_enabled}}
             <li class="navUser-item">
                 <a class="navUser-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
             </li>
         {{/if}}
+        -->
         <li class="navUser-item navUser-item--account">
             {{#if customer}}
                 <a class="navUser-action" href="{{urls.account.index}}">{{lang 'common.account'}}</a>
                 <a class="navUser-action" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
             {{else}}
                 <a class="navUser-action" href="{{urls.auth.login}}">{{lang 'common.login'}}</a>
+            <!--
                 {{#if settings.account_creation_enabled}}
                     <span class="navUser-or">{{lang 'common.or'}}</span> <a class="navUser-action" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
                 {{/if}}
+                -->
             {{/if}}
         </li>
         <li class="navUser-item navUser-item--cart">

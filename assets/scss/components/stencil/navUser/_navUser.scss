@@ -13,21 +13,10 @@
 
 .navUser {
     @include nav($style: "navBar", $wrapper: "nav");
-    @include verticalPositionMiddle("absolute");
-    right: 0;
-    top: 26px; // 2
-    width: 100%; // 4
-    z-index: zIndex("lowest"); // 5.
 
-    @include breakpoint("medium") {
-        padding: 0 spacing("single");
-        position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
-        z-index: zIndex("high");
+    .navUser-action {
+        padding: 0 15px;
     }
-
     .dropdown-menu {
         background-color: stencilColor("navUser-dropdown-backgroundColor");
         border: 1px solid stencilColor("navUser-dropdown-borderColor");
@@ -125,11 +114,18 @@
             margin-top: rem-calc(5px);
             padding-right: rem-calc(5px);
         }
+        &.navUser-item--call,
+        &.navUser-item--email {
+            color: stencilColor("navUser-color-hover");
+            padding: 0 15px;
+            a {
+                text-decoration: none;
+            }
+        }
 
         &.navUser-item--divider {
-            font-size: rem-calc(25px);
-            margin-top: rem-calc(8px);
             padding-left: rem-calc(2px);
+            color: stencilColor("color-textSecondary");
         }
     }
 }
@@ -138,7 +134,7 @@
     display: block;
 
     .navUser-action {
-        color: stencilColor("navUser-color");
+//        color: stencilColor("navUser-color");
 
         // scss-lint:disable NestingDepth
         &:hover,

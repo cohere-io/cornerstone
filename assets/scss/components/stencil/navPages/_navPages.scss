@@ -28,7 +28,7 @@
 
 .has-activeNavPages {
     // scss-lint:disable VendorPrefix
-    overflow: hidden; // 2
+    //overflow: hidden; // 2
     -webkit-overflow-scrolling: auto; // 3
 }
 
@@ -40,25 +40,28 @@
     // scss-lint:disable VendorPrefix
     bottom: 0;
     display: none;
-    height: 100%;
-    left: 0;
+    //height: 100%;
     -webkit-overflow-scrolling: touch;
-    position: absolute;
-    right: 0;
-    z-index: zIndex("lower");
+    position: relative;
+    //float: right;
+    z-index: zIndex("higher");
 
     @include breakpoint("medium") {
         background: transparent;
         display: block;
         height: auto;
         padding: 0;
-        position: relative;
+        &.right {
+            float: right;
+        }
     }
 
     &.is-open {
+        //background: #cccccc;
         display: block;
-        padding-top: $header-height;
+        padding-top: 47px;
         z-index: 0;
+        //height: 100%;
     }
 }
 
@@ -68,21 +71,23 @@
 
 .navPages {
     background-color: $navPages-backgroundColor;
-    height: 100%;
-    overflow-y: auto;
+    //height: 47px;
+    //overflow-y: visible;
     padding: spacing("single");
 
     @include breakpoint("medium") {
         @include grid-row(); // 1
         @include nav($style: "navBar", $wrapper: "nav");
+        height: 59px;
         background: none;
         font-size: 0; // 1
-        overflow-y: visible;
-        padding: 0;
+        //overflow-y: visible;
+        padding: 5px 0 0 0;
         text-align: center;
     }
 
     ul {
+        margin-top: 3px;
         list-style: none;
     }
 
@@ -108,7 +113,7 @@
 
     @include breakpoint("medium") {
         display: inline-block;
-        float: none;
+        float: right;
     }
 
     + .navPages-list {
@@ -189,14 +194,13 @@
     color: stencilColor("navPages-color");
     display: block;
     font-size: fontSize("smaller");
-    font-weight: fontWeight("bold");
-    padding: spacing("half") 0;
+    font-weight: 600;
+    padding: 0.65em 0;
     text-decoration: none;
-    text-transform: uppercase;
 
     @include breakpoint("medium") {
         display: inline-block;
-        padding: spacing("half") (spacing("half") + spacing("quarter")) (spacing("half") + spacing("quarter"));
+        padding: 0.65em 0.65em;
 
         &.is-open {
             background-color: stencilColor("navPages-subMenu-backgroundColor");
@@ -302,6 +306,8 @@
 
     &.is-open {
         display: block;
+        z-index: 100;
+        border-bottom: 1px solid #999;
     }
 }
 
@@ -423,7 +429,6 @@
         margin-bottom: 0;
     }
 }
-
 
 //
 // NavPages user section for mobile nav panel

@@ -568,8 +568,8 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 .previewCartItem-name {
     margin: 0;
     text-transform: none;
-
     > a {
+        color: $color-greyDark;
         text-decoration: none;
     }
 }
@@ -621,6 +621,9 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 
 .previewCartAction-viewCart {
     padding-left: spacing("quarter");
+    > a {
+        color: $color-grey;
+    }
 }
 
 .previewCart-emptyBody {

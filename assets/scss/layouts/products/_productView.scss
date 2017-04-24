@@ -7,9 +7,22 @@
 // -----------------------------------------------------------------------------
 
 .productView {
-    @include grid-row($behavior: "nest");
-    margin-left: -(spacing("base"));
-    margin-right: -(spacing("base"));
+    //@include grid-row($behavior: "nest");
+    //margin-left: -(spacing("base"));
+    //margin-right: -(spacing("base"));
+
+    h1 {
+        font-size: 28px;
+        font-weight: 600;
+        margin: spacing("half") 0 spacing("half");
+    }
+    .price--rrp {
+        color: $color-greyMedium;
+    }
+
+    .price--withoutTax {
+        color: $color-priceBase;
+    }
 
     .modal & {
         padding-bottom: 0;

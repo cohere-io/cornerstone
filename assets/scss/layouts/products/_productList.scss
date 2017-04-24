@@ -9,6 +9,10 @@
 .productList {
     @include u-listBullets("none");
 
+    .price--withoutTax {
+        color: $color-priceBase;
+    }
+
     .product {
         // scss-lint:disable NestingDepth
         + .product {

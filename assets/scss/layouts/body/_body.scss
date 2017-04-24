@@ -7,13 +7,18 @@
 //
 // =============================================================================
 
+body {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    //font-family: 'Lato', sans-serif;
+}
 
 .body {
     margin-bottom: spacing("double") * 2;
-    margin-top: spacing("single"); // 1
+    margin-top: spacing("single") / 2; // 1
+    padding-top: 10px;
 
     @include breakpoint("medium") {
-        margin-top: spacing("single") + spacing("base"); // 1
+        clear: both;
     }
 }
 
@@ -52,6 +57,32 @@
 
         + .page-content {
             @include grid-column(9);
+        }
+    }
+}
+
+.brands {
+    display: none;
+    @include breakpoint("medium") {
+        display: block;
+        min-width: 900px;
+        margin-bottom: 25px;
+        background: #eaeaea;
+        .container {
+            text-align: center;
+            > ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                > li {
+                    padding: 1em 1.5em;
+                    font-size: 16px;
+                    display: inline-block;
+                    > a {
+                        text-decoration: none;
+                    }
+                }
+            }
         }
     }
 }

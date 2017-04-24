@@ -22,6 +22,13 @@
         display: inline-block;
         font-size: fontSize("base"); // 1
         vertical-align: top;
+        margin-top: 1em;
+        padding: 0 2em;
+
+        .price--withoutTax {
+            color: $color-priceBase;
+            font-weight: 600;
+        }
 
         @include breakpoint("small") {
             width: grid-calc(4, $total-columns);
@@ -147,7 +154,7 @@
 
             // scss-lint:disable SelectorDepth, NestingDepth
             .product {
-                @include grid-column(4, $float: none);
+                @include grid-column(4);
             }
         }
     }

@@ -18,14 +18,14 @@
             <div class="form-field">
                 <label class="form-label" for="from_name">
                     {{lang 'forms.gift_certificate.purchase.from_name' }}
-                    <small>{{lang 'common.required' }}</small>
+                    <small>{{{lang 'common.required' }}}</small>
                 </label>
                 <input type="text" class="form-input" name="from_name" id="from_name" value="{{forms.gift_certificate.values.from_name}}">
             </div>
             <div class="form-field">
                 <label class="form-label" for="from_email">
                     {{lang 'forms.gift_certificate.purchase.from_email' }}
-                    <small>{{lang 'common.required' }}</small>
+                    <small>{{{lang 'common.required' }}}</small>
                 </label>
                 <input type="text" class="form-input" name="from_email" id="from_email" value="{{forms.gift_certificate.values.from_email}}">
             </div>
@@ -34,14 +34,14 @@
             <div class="form-field">
                 <label class="form-label" for="to_name">
                     {{lang 'forms.gift_certificate.purchase.to_name' }}
-                    <small>{{lang 'common.required' }}</small>
+                    <small>{{{lang 'common.required' }}}</small>
                 </label>
                 <input type="text" class="form-input" name="to_name" id="to_name" value="{{forms.gift_certificate.values.to_name}}">
             </div>
             <div class="form-field">
                 <label class="form-label" for="to_email">
                     {{lang 'forms.gift_certificate.purchase.to_email' }}
-                    <small>{{lang 'common.required' }}</small>
+                    <small>{{{lang 'common.required' }}}</small>
                 </label>
                 <input type="text" class="form-input" name="to_email" id="to_email" value="{{forms.gift_certificate.values.to_email}}">
             </div>
@@ -52,7 +52,7 @@
                     <div class="form-field">
                         <label class="form-label" for="certificate_amount">
                             {{lang 'forms.gift_certificate.purchase.amount' }}
-                            <small>{{lang 'common.required' }}</small>
+                            <small>{{{lang 'common.required' }}}</small>
                         </label>
                         <input type="text" data-min="{{forms.gift_certificate.minimum.value}}" data-max="{{forms.gift_certificate.maximum.value}}" data-min-formatted="{{forms.gift_certificate.minimum.formatted}}" data-max-formatted="{{forms.gift_certificate.maximum.formatted}}" class="form-input" name="certificate_amount" id="certificate_amount" value="{{forms.gift_certificate.values.amount.value}}">
                     </div>
@@ -60,7 +60,7 @@
                     <div class="form-field">
                         <label class="form-label" for="selected_amount">
                             {{lang 'forms.gift_certificate.purchase.amount' }}
-                            <small>{{lang 'common.required' }}</small>
+                            <small>{{{lang 'common.required' }}}</small>
                         </label>
                         <select class="form-select" name="selected_amount" id="selected_amount">
                             {{#each forms.gift_certificate.amount_options}}
@@ -87,7 +87,7 @@
                 </div>
                 <label class="form-label">
                     {{lang 'forms.gift_certificate.purchase.theme' }}
-                    <small>{{lang 'common.required' }}</small>
+                    <small>{{{lang 'common.required' }}}</small>
                 </label>
                 <div class="form-field form-field-group">
                     {{#each forms.gift_certificate.themes}}

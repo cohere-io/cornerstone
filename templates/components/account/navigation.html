@@ -30,7 +30,7 @@
                 <a class="navBar-action" href="{{urls.account.addresses}}">{{lang 'account.nav.addresses'}}</a>
             </li>
         {{/if}}
-        {{#if settings.show_wishlist}}
+        <!--{{#if settings.show_wishlist}}
             {{#if account_page '===' 'wishlists'}}
                 <li class="navBar-item is-active">{{lang 'account.nav.wishlists' num_wishlists=customer.num_wishlists}}</li>
             {{else}}
@@ -38,7 +38,7 @@
                     <a class="navBar-action" href="{{urls.account.wishlists.all}}">{{lang 'account.nav.wishlists' num_wishlists=customer.num_wishlists}}</a>
                 </li>
             {{/if}}
-        {{/if}}
+        {{/if}}-->
         {{#if account_page '===' 'recent_items'}}
             <li class="navBar-item is-active">{{lang 'account.nav.recently_viewed'}}</li>
         {{else}}

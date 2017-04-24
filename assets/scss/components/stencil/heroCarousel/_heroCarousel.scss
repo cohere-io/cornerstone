@@ -15,13 +15,15 @@
 // 3. Visually overrides the top margin for '.body' defined in _body.scss.
 //    The '.body' top margin creates space between the header and page content.
 //    However, on the homepage, we want the carousel to be flush with the header.
-//
-// 4. Allows image to scale on large screens while preventing the top and bottom
-//    from becoming cut off.
 // -----------------------------------------------------------------------------
 
+.slick-slider {
+    margin-bottom: 0;
+}
+
 .heroCarousel {
-    margin-bottom: (spacing("double") + spacing("single"));
+    border-bottom: 2px solid $color-greyLighter;
+    //margin-bottom: (spacing("double") + spacing("single"));
     margin-top: -(spacing("single")); // 3
 
     @include breakpoint("medium") {
@@ -66,6 +68,7 @@
     }
 
     .slick-dots {
+        display: none !important;
         bottom: spacing("third");
 
         @include breakpoint("medium") {
@@ -77,6 +80,7 @@
             @include carouselOpaqueBackgrounds($slick-dot-bgColor);
         }
     }
+
 }
 
 .heroCarousel-slide {

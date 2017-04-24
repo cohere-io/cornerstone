@@ -1,5 +1,6 @@
 <article class="card {{#if alternate}}card--alternate{{/if}}">
     <figure class="card-figure">
+        <span class="card-helper"></span>
         {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
             {{#if theme_settings.product_sale_badges '===' 'sash'}}
                 <div class="sale-flag-sash">
@@ -19,7 +20,7 @@
         <a href="{{url}}">
             <img class="card-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
         </a>
-        <figcaption class="card-figcaption">
+        <!--<figcaption class="card-figcaption">
             <div class="card-figcaption-body">
                 {{#unless hide_product_quick_view}}
                     {{#if theme_settings.show_product_quick_view}}
@@ -48,7 +49,7 @@
                     {{/if}}
                 {{/or}}
             </div>
-        </figcaption>
+        </figcaption>-->
     </figure>
     <div class="card-body">
         {{#if show_rating}}

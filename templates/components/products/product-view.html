@@ -213,16 +213,16 @@
                     {{/if}}
                 {{/if}}
             </form>
-            {{#if settings.show_wishlist}}
+            <!--{{#if settings.show_wishlist}}
                 <form class="form" method="post" action="{{product.add_to_wishlist_url}}" data-wishlist-add>
                     <div class="form-action">
                         <input type="hidden" name="variation_id" value="">
                         <input class="button" type="submit" value="{{lang 'account.wishlists.add_item'}}">
                     </div>
                 </form>
-            {{/if}}
+            {{/if}}-->
         </div>
-        {{> components/common/share}}
+
         {{{snippet 'product_details'}}}
     </section>
 

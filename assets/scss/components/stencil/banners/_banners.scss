@@ -11,22 +11,46 @@
 // -----------------------------------------------------------------------------
 
 .banners {
-    background-color: stencilColor("color-primary");
+    background-color: #000000;
+    font-weight: 600;
+    font-size: 13px;
+    font-family: 'Fira Sans Condensed', sans-serif;
     color: stencilColor("color-white");
-    padding: spacing("half") 0;
+    padding: 2px 0;
     text-align: center;
+    //position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    padding-top: 4px;
+    height: 28px;
+    width: 100%;
+
+    .left {
+        float: left;
+        padding-left: 6px;
+    }
+
+    .right {
+        float: right;
+    }
 
     p:last-child {
         margin-bottom: 0;
     }
 
-    a {
-        color: color("whites", "bright");
+    .navUser-item {
+        > a {
+            color: color("whites", "bright");
+        }
     }
+    .navUser-action--quickSearch {
+        display: none;
+    }
+
 }
 
 .banner {
-    @include grid-row;
 
     + .banner {
         margin-top: spacing("single");

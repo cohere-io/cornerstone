@@ -1,10 +1,10 @@
 {
-  "name": "bigcommerce-cornerstone",
-  "description": "The BigCommerce reference theme for the Stencil platform",
-  "version": "1.6.3",
+  "name": "glory-stencil",
+  "description": "Glory Cycles Stencil Theme",
+  "version": "0.0.2",
   "private": true,
-  "author": "BigCommerce",
-  "license": "MIT",
+  "author": "kurt@cohere.io",
+  "license": "NONE",
   "devDependencies": {
     "@bigcommerce/citadel": "^2.11.5",
     "@bigcommerce/stencil-utils": "1.0.5",

@@ -1,30 +1,22 @@
-{{#if banners.top}}
-<div class="banners" data-banner-location="top">
+<div class="banners">
     <div class="banner">
-        {{{limit banners.top 1}}}
+        <div class="left">Free Shipping on Orders $50+ / 100% Satisfaction Guaranteed</div>
+        <div class="right">{{> components/common/navigation}}</div>
     </div>
 </div>
-{{/if}}
 <header class="header" role="banner">
-    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
-        <span class="mobileMenu-toggleIcon">Toggle menu</span>
-    </a>
-
-    {{> components/common/navigation}}
-
-    {{#if template_file '===' 'pages/home'}}
-        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
-        </h1>
-    {{else}}
-        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+    <div class="header-row">
+        <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+            <span class="mobileMenu-toggleIcon">Toggle menu</span>
+        </a>
+        <div class="left store-logo">
             {{> components/common/store-logo}}
         </div>
-    {{/if}}
-
-
-    <div class="navPages-container" id="menu" data-menu>
-        {{> components/common/navigation-menu}}
+        <div class="navPages-container right" id="menu" data-menu>
+            {{> components/common/navigation-menu}}
+        </div>
+        <div class="search">
+            {{> components/common/quick-search}}
+        </div>
     </div>
-
 </header>
