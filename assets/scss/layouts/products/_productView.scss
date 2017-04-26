@@ -64,8 +64,8 @@
     padding-right: spacing("base");
 
     @include breakpoint("large") {
-        clear: right;
-        float: right;
-        width: grid-calc(6, $total-columns);
+        //clear: right;
+        //float: right;
+        //width: grid-calc(6, $total-columns);
     }
 }
