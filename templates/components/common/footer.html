@@ -7,15 +7,6 @@
 {{/if}}
 <footer class="footer" role="contentinfo">
     <div class="container">
-        {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
-            <article class="footer-info-col
-                footer-info-col--social
-                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
-                data-section-type="footer-webPages">
-                    <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
-                    {{> components/common/social-links}}
-            </article>
-        {{/if}}
         <section class="footer-info">
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h5 class="footer-info-heading">{{lang 'footer.navigate'}}</h5>
@@ -62,6 +53,17 @@
                 {{#if settings.phone_number}}
                     <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
                 {{/if}}
+
+                {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+                <article class="footer-info-col
+                footer-info-col--social
+                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
+                         data-section-type="footer-webPages">
+                    <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
+                    {{> components/common/social-links}}
+                </article>
+                {{/if}}
+
             </article>
 
             <article class="footer-info-col" data-section-type="newsletterSubscription">
@@ -70,6 +72,7 @@
                 {{/if}}
                 {{> components/common/payment-icons}}
             </article>
+
         </section>
         {{#if theme_settings.geotrust_ssl_common_name}}
             <div class="footer-geotrust-ssl-seal">

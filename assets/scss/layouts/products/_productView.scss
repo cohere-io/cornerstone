@@ -59,6 +59,7 @@
 }
 
 .productView-description {
+    font-size: 1.2rem;
     @include grid-column(12);
     padding-left: spacing("base");
     padding-right: spacing("base");

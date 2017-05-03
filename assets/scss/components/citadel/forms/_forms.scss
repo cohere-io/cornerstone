@@ -133,7 +133,8 @@
 // -----------------------------------------------------------------------------
 
 .form-label--alternate {
-    font-family: fontFamily("headingSans");
+    font-family: "Fira Sans Condensed",sans-serif;
+    font-weight: 600;
     font-size: fontSize("smallest");
     margin-bottom: spacing("half");
 }

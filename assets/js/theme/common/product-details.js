@@ -79,6 +79,7 @@ export default class Product {
                 $input: $('[data-product-stock]', $scope),
             },
             $sku: $('[data-product-sku]'),
+            $upc: $('[data-product-upc]'),
             quantity: {
                 $text: $('.incrementTotal', $scope),
                 $input: $('[name=qty\\[\\]]', $scope),
@@ -374,6 +375,16 @@ export default class Product {
         // If SKU is available
         if (data.sku) {
             viewModel.$sku.text(data.sku);
+            viewModel.$sku.parent().removeClass('u-hiddenVisually');
+        } else {
+            viewModel.$sku.parent().addClass('u-hiddenVisually');
+        }
+
+        if (data.upc) {
+            viewModel.$upc.text(data.upc);
+            viewModel.$upc.parent().removeClass('u-hiddenVisually');
+        } else {
+            viewModel.$upc.parent().addClass('u-hiddenVisually');
         }
 
         // if stock view is on (CP settings)

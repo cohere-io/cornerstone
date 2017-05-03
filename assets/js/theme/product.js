@@ -34,7 +34,25 @@ export default class Product extends PageManager {
         collapsibleFactory();
 
         this.productDetails = new ProductDetails($('.productView'), this.context, window.BCData.product_attributes);
+        const description = $('#tab-description');
+        const text = description.html().replace(/<(?:.|\n)*?>/gm, '');
 
+        let shortDescription = text;
+
+        if (text) {
+            if (text.length > 300) {
+                shortDescription = `${text.substr(0, 250)}...`;
+            }
+            if (shortDescription) {
+                shortDescription = `<div class="productView-shortDescription">${shortDescription}</div><div class="productView-readMoreWrapper"><a class="productView-readMore">Read more</a></div>`;
+                $('#short-description').html(shortDescription);
+            }
+            $('.productView-readMore').on('click', () => {
+                $('html, body').animate({
+                    scrollTop: $('#tab-description').offset().top - $('a[href="#tab-description"]').outerHeight(),
+                }, 500);
+            });
+        }
         videoGallery();
 
         const $reviewForm = classifyForm('.writeReview-form');

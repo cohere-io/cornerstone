@@ -26,8 +26,10 @@ export default function () {
         // any modification to the background element.
         if ($(e.target).parent().hasClass('modal-close')) {
             $quickSearchResults.html('');
+            $('.body').show();
         } else if ($(e.target).closest('[data-prevent-quick-search-close], .modal-background').length === 0) {
             stencilDropDown.hide($container);
+            $('.body').show();
         }
     };
 
@@ -38,6 +40,7 @@ export default function () {
                 return false;
             }
             $quickSearchResults.html(response);
+            $('.body').hide();
         });
     }, 200);
 
@@ -47,6 +50,7 @@ export default function () {
         // server will only perform search with at least 3 characters
         if (searchQuery.length < 3) {
             $quickSearchResults.html('');
+            $('.body').show();
             return;
         }
 

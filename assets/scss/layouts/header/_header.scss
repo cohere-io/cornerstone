@@ -25,43 +25,46 @@
         display: block;
         float: left;
         z-index: 200;
-        //padding: 3px 0;
     }
     .search {
         display: none;
     }
 
     @include breakpoint("medium") {
+		display: table;
         height: 59px;
         overflow: visible;
         clear: both;
         min-width: 900px;
+		.header-row {
+			display: table-row;
+		}
         .store-logo {
+			width: 216px;
+			height: 53px;
+			display: table-cell;
             padding: 5px 0 5px 5px;
             img {
-                height: 43px;
+                width: 211px;
+				height: 43px;
             }
         }
         .search {
-            min-width: 50px;
-            //margin-top: 8px;
-            display: block;
-            //float: left;
+			vertical-align: top;
+            min-width: 175px;
+            display: table-cell;
+			box-sizing: border-box;
+			width: 100%;
             .container {
-                margin: 0;
+				margin: 0;
                 padding: 0 0 0 0;
                 width: 100%;
                 max-width: inherit;
 
             }
-            .quickSearchResults {
-                position: relative;
-                top: -12px;
-                background: #cccccc;
-                .productGrid {
-                    padding-top: 40px;
-                }
-            }
+			.form {
+				margin: 0;
+			}
             .form-field {
                 margin: 8px 10px 0 20px;
             }
@@ -69,6 +72,9 @@
                 box-sizing:border-box;
                 -moz-box-sizing:border-box;
                 width: 100%;
+				background: #ffffff;
+				box-shadow:inset 3px 3px 8px 0 #ddd;
+				font-size: 16px;
                 //max-width: 300px;
             }
         }

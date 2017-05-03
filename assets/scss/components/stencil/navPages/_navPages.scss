@@ -47,13 +47,15 @@
     z-index: zIndex("higher");
 
     @include breakpoint("medium") {
+        vertical-align: top;
         background: transparent;
-        display: block;
+        display: table-cell;
         height: auto;
+        min-width: 616px;
         padding: 0;
-        &.right {
-            float: right;
-        }
+        //&.right {
+        //    float: right;
+        //}
     }
 
     &.is-open {
@@ -351,6 +353,7 @@
         // scss-lint:disable ImportantRule
         @include grid-column(3);
         padding: 0 0.75rem !important; // 1
+        height: 65px;
 
         .navPages-action {
             text-transform: none;

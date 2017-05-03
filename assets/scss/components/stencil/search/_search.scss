@@ -24,9 +24,20 @@
 }
 
 .quickSearchResults {
+    position: absolute;
+    width: 100vw;
+    left: -1.5em;
+    z-index: 100;
+    background: #cccccc;
+    .productGrid {
+        padding-top: 40px;
+    }
     margin-top: spacing("single");
 
     @include breakpoint("medium") {
+        width: 100vw;
+        left: -216px;
+        top: 60px;
         margin-top: 0;
     }
 

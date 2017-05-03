@@ -80,7 +80,20 @@
 // -----------------------------------------------------------------------------
 
 .productView-details {
-    margin-bottom: spacing("single") + spacing("third");
+    .productView-customFields {
+        display: none;
+    }
+    .productView-shortDescription {
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+    }
+    .productView-readMoreWrapper {
+        font-size: 1.0rem;
+        padding: 15px 0 20px 0;
+        text-transform: lowercase;
+        border-bottom: 1px solid color("greys", "lighter");
+    }
+    //margin-bottom: spacing("single");
 }
 
 
@@ -89,8 +102,8 @@
 
 .productView-product {
     @include breakpoint("medium") {
-        border-bottom: container("border");
-        padding-bottom: spacing("single") + spacing("third");
+        //border-bottom: container("border");
+        //padding-bottom: spacing("single") + spacing("third");
     }
 
     > :last-child {
@@ -139,7 +152,7 @@
 
 .productView-price {
     font-size: fontSize("larger");
-    //margin-bottom: spacing("third");
+    margin-bottom: spacing("single");
 
     @include breakpoint("medium") {
         font-size: fontSize("larger");
@@ -187,17 +200,18 @@
 .productView-info {
     @include clearfix;
     margin-top: spacing("half");
+    margin-bottom: 0;
 
     @include breakpoint("small") {
         margin-top: 0;
     }
 
-    > :first-child {
-
-        @include breakpoint("small") {
-            margin-top: spacing("half");
-        }
-    }
+    //> :first-child {
+	//
+    //    @include breakpoint("small") {
+    //        margin-top: spacing("half");
+    //    }
+    //}
 
     > :last-child {
         margin-bottom: 0;
@@ -213,20 +227,25 @@
     }
 }
 
+.productView-info-sku {
+    float: none;
+    display: inline-block;
+}
+
 .productView-info-name {
     clear: both;
+    font-weight: 600;
     margin-bottom: spacing("eighth");
     margin-right: spacing("quarter");
 
     @include breakpoint("small") {
-        font-family: fontFamily("headingSans");
         font-size: fontSize("smallest");
-        font-weight: fontWeight("normal");
+        //font-weight: fontWeight("normal");
     }
 }
 
 .productView-info-value {
-    margin-bottom: spacing("quarter");
+    //margin-bottom: spacing("quarter");
 
     @include breakpoint("small") {
         margin-bottom: spacing("base");
@@ -244,6 +263,7 @@
 // -----------------------------------------------------------------------------
 
 .productView-options {
+    padding-top: 20px;
     @include clearfix;
     margin-bottom: spacing("single");
     text-align: center;

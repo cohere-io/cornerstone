@@ -82,22 +82,22 @@
     font-size: 15px;
     font-weight: 700;
     height: rem-calc(20px);
-    left: -35px;
+    left: -30px;
     line-height: rem-calc(16px);
     padding-top: spacing("eighth") / 2;
     position: absolute;
     text-align: center;
-    top: 25px;
+    top: 20px;
     transform: rotate(-45deg);
-    transition: 800ms ease;
+    transition: 250ms ease;
     width: rem-calc(119px);
     z-index: zIndex("lower");
 }
 
-.product:hover .sale-flag-sash {
-    background: stencilColor("color_hover_product_sale_badges");
-    transition: 800ms ease;
-}
+//.product:hover .sale-flag-sash {
+//    background: stencilColor("color_hover_product_sale_badges");
+//    transition: 250ms ease;
+//}
 
 .product {
     overflow: hidden;

@@ -58,94 +58,7 @@
                 {{/if}}
             </div>
             {{product.detail_messages}}
-            <dl class="productView-info">
-                {{#if product.sku}}
-                    <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
-                    <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
-                {{/if}}
-                {{#if product.upc}}
-                    <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
-                    <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
-                {{/if}}
-                {{#if product.condition}}
-                    <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
-                    <dd class="productView-info-value">{{product.condition}}</dd>
-                {{/if}}
-                {{#if product.availability}}
-                    <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
-                    <dd class="productView-info-value">{{product.availability}}</dd>
-                {{/if}}
-                {{#if product.weight}}
-                    <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
-                    <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
-                {{/if}}
-                {{#if product.min_purchase_quantity}}
-                    <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
-                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
-                {{/if}}
-                {{#if product.max_purchase_quantity}}
-                    <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
-                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
-                {{/if}}
-                {{#if product.gift_wrapping_available}}
-                    <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
-                    <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
-                {{/if}}
-                {{#if product.shipping}}
-                    {{#if product.shipping.calculated}}
-                        <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-                        <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
-                    {{else}}
-                        {{#if product.shipping.price.value '===' 0}}
-                            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-                            <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
-                        {{else}}
-                            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-                            <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
-                        {{/if}}
-                    {{/if}}
-                {{/if}}
-                {{#if product.bulk_discount_rates.length}}
-                    <dt class="productView-info-name">{{lang 'products.bulk_pricing.title'}}</dt>
-                    <dd class="productView-info-value">
-                        <a href="{{product.url}}"
-                            {{#unless is_ajax }}data-reveal-id="bulkPricingModal" {{/unless}}>
-                            {{lang 'products.bulk_pricing.view'}}
-                        </a>
-                    </dd>
 
-                    <div id="bulkPricingModal" class="modal modal--small" data-reveal>
-                        <div class="modal-header">
-                            <h2 class="modal-header-title">{{lang 'products.bulk_pricing.modal_title'}}</h2>
-                            <a href="#" class="modal-close" aria-label="Close"><span aria-hidden="true">&#215;</span></a>
-                        </div>
-                        <div class="modal-body">
-                            <p>{{lang 'products.bulk_pricing.instructions'}}</p>
-                            <ul>
-                            {{#each product.bulk_discount_rates}}
-                                <li>
-                                    {{lang 'products.bulk_pricing.range' min=min max=max}}
-                                    {{#if type '===' 'percent'}}
-                                        {{lang 'products.bulk_pricing.percent' discount=discount.formatted}}
-                                    {{/if}}
-                                    {{#if type '===' 'fixed'}}
-                                        {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}
-                                    {{/if}}
-                                    {{#if type '===' 'price'}}
-                                        {{lang 'products.bulk_pricing.price' discount=discount.formatted}}
-                                    {{/if}}
-                                </li>
-                            {{/each}}
-                            </ul>
-                        </div>
-                    </div>
-                {{/if}}
-
-                {{#each product.custom_fields}}
-                    <dt class="productView-info-name">{{name}}:</dt>
-                    <dd class="productView-info-value">{{{value}}}</dd>
-                {{/each}}
-            </dl>
         </div>
     </section>
 
@@ -177,7 +90,101 @@
     </section>
 
     <section class="productView-details">
+
+        <div id="short-description"></div>
+
         <div class="productView-options">
+            <dl class="productView-info">
+                <div class="productView-info-sku{{#unless product.sku}} u-hiddenVisually{{/unless}}">
+                    <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
+                    <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
+                </div>
+                <div class="productView-info-upc{{#unless product.upc}} u-hiddenVisually{{/unless}}">
+                    <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
+                    <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+                </div>
+                {{#if product.condition}}
+                <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
+                <dd class="productView-info-value">{{product.condition}}</dd>
+                {{/if}}
+                {{#if product.availability}}
+                <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
+                <dd class="productView-info-value">{{product.availability}}</dd>
+                {{/if}}
+                {{#if product.weight}}
+                <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+                <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+                {{/if}}
+                {{#if product.min_purchase_quantity}}
+                <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
+                {{/if}}
+                {{#if product.max_purchase_quantity}}
+                <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
+                {{/if}}
+                {{#if product.gift_wrapping_available}}
+                <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+                {{/if}}
+                {{#if product.shipping}}
+                {{#if product.shipping.calculated}}
+                <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
+                {{else}}
+                {{#if product.shipping.price.value '===' 0}}
+                <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
+                {{else}}
+                <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
+                {{/if}}
+                {{/if}}
+                {{/if}}
+                {{#if product.bulk_discount_rates.length}}
+                <dt class="productView-info-name">{{lang 'products.bulk_pricing.title'}}</dt>
+                <dd class="productView-info-value">
+                    <a href="{{product.url}}"
+                       {{#unless is_ajax }}data-reveal-id="bulkPricingModal" {{/unless}}>
+                    {{lang 'products.bulk_pricing.view'}}
+                    </a>
+                </dd>
+
+                <div id="bulkPricingModal" class="modal modal--small" data-reveal>
+                    <div class="modal-header">
+                        <h2 class="modal-header-title">{{lang 'products.bulk_pricing.modal_title'}}</h2>
+                        <a href="#" class="modal-close" aria-label="Close"><span aria-hidden="true">&#215;</span></a>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{lang 'products.bulk_pricing.instructions'}}</p>
+                        <ul>
+                            {{#each product.bulk_discount_rates}}
+                            <li>
+                                {{lang 'products.bulk_pricing.range' min=min max=max}}
+                                {{#if type '===' 'percent'}}
+                                {{lang 'products.bulk_pricing.percent' discount=discount.formatted}}
+                                {{/if}}
+                                {{#if type '===' 'fixed'}}
+                                {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}
+                                {{/if}}
+                                {{#if type '===' 'price'}}
+                                {{lang 'products.bulk_pricing.price' discount=discount.formatted}}
+                                {{/if}}
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                {{/if}}
+                {{#if product.custom_fields.length}}
+                <div class="productView-customFields">
+                    {{#each product.custom_fields}}
+                    <dt class="productView-info-name">{{name}}:</dt>
+                    <dd class="productView-info-value">{{{value}}}</dd>
+                    {{/each}}
+                </div>
+                {{/if}}
+            </dl>
             {{#if product.release_date }}
                 <p>{{product.release_date}}</p>
             {{/if}}
@@ -213,14 +220,14 @@
                     {{/if}}
                 {{/if}}
             </form>
-            <!--{{#if settings.show_wishlist}}
+            {{#if settings.show_wishlist}}
                 <form class="form" method="post" action="{{product.add_to_wishlist_url}}" data-wishlist-add>
                     <div class="form-action">
                         <input type="hidden" name="variation_id" value="">
                         <input class="button" type="submit" value="{{lang 'account.wishlists.add_item'}}">
                     </div>
                 </form>
-            {{/if}}-->
+            {{/if}}
         </div>
 
         {{{snippet 'product_details'}}}
