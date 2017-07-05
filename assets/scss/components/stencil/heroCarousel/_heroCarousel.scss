@@ -100,20 +100,29 @@
     }
 }
 
+.heroCarousel .slick-slide img {
+    display: none;
+    @include breakpoint("medium") { // 1
+        display: block;
+    }
+}
+
 .heroCarousel-image {
+    visibility: hidden;
     @include breakpoint("medium") { // 1
         visibility: hidden;
     }
 }
 
 .heroCarousel-content {
-    background-color: rgba($carousel-bgColor, 1);
-    padding: spacing("half") spacing("single") (spacing("double"));
+    //background-color: transparent !important;
+    background-color: rgba($carousel-bgColor, 0.25);
+    padding: spacing("double") spacing("single") (spacing("double"));
     text-align: center;
 
     @include breakpoint("medium") {
         @include carouselOpaqueBackgrounds;
-        background-color: rgba($carousel-bgColor, 0.9);
+        background-color: rgba($carousel-bgColor, 0.25);
         left: 0;
         margin: 0 auto;
         padding: spacing("single") * 1.5;
@@ -130,9 +139,11 @@
 }
 
 .heroCarousel-title {
-    color: $carousel-title-color;
-    font-size: fontSize("small");
+    //color: $carousel-title-color;
+    font-size: 36px;
     margin-top: 0;
+    color: #ffffff;
+    text-shadow: #000 0 2px 4px;
 
     @include breakpoint("medium") {
         font-size: fontSize("hero");
@@ -140,15 +151,19 @@
 }
 
 .heroCarousel-description {
-    color: $carousel-description-color;
-    font-size: fontSize("tiny");
+    //color: $carousel-description-color;
+    color: #ffffff;
+    //font-size: fontSize("tiny");
+    font-size: 18px;
+    text-shadow: #000 0 2px 4px;
+
 
     @include breakpoint("small") {
-        font-size: fontSize("smallest");
+        //font-size: fontSize("smallest");
     }
 
     @include breakpoint("medium") {
-        font-size: fontSize("smaller");
+        //font-size: fontSize("smaller");
     }
 }
 

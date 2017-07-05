@@ -135,7 +135,7 @@
 .form-label--alternate {
     font-family: "Fira Sans Condensed",sans-serif;
     font-weight: 600;
-    font-size: fontSize("smallest");
+    font-size: 1rem;
     margin-bottom: spacing("half");
 }
 
@@ -151,7 +151,7 @@
 .form-select--date {
     background-position: right spacing("third") top spacing("third");
     background-size: remCalc(18px);
-    font-size: $input-small-fontSize;
+    //font-size: $input-small-fontSize;
     height: $input-small-height;
     line-height: 1rem;
     max-width: 20rem;

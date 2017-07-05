@@ -1,6 +1,6 @@
 $fonts: $fontFamily-sans $fontFamily-serif $fontFamily-mono $fontFamily-headings $fontFamily-hero;
 
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed|Fira+Sans+Extra+Condensed|Lato');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,500,600|Lato:400,500,600');
 
 @if contains($fonts, "'Clear Sans', sans-serif") {
     @import "clear-sans";

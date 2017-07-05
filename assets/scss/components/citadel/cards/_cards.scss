@@ -72,6 +72,7 @@
 .card-title {
     font-size: $card-title-fontSize;
     margin: $card-title-margin;
+    font-weight: 400;
 
     > a {
         color: $card-title-color;
@@ -93,7 +94,7 @@
         font-size: inherit;
     }
     &.brand-name {
-        font-weight: 600;
+        font-weight: 400;
     }
 }
 

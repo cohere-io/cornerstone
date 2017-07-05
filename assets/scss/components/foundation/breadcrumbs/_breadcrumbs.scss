@@ -18,7 +18,7 @@ ul.breadcrumbs {
 
     @include breakpoint("small") {
         display: block; // 1
-        margin-bottom: 0;
+        padding-bottom: 1.5em;
     }
 }
 

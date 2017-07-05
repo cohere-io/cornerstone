@@ -46,7 +46,11 @@
     }
 
     &.pagination-item--current { // 1
-        border-color: $pagination-link-current-borderColor;
+        border-color: #454545;
+        background: #454545;
+        a {
+            color: white;
+        }
         border-radius: $pagination-link-current-borderRadius;
         margin: $pagination-link-current-margin;
     }

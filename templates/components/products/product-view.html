@@ -37,21 +37,23 @@
                         {{/if}}
                     {{/if}}
                     {{> components/products/ratings rating=product.rating}}
-                    <span class="productView-reviewLink">
-                        {{#if product.num_reviews '>' 0}}
-                            <a href="{{product.url}}#product-reviews">
-                                {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
-                            </a>
-                        {{else}}
-                            {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
-                        {{/if}}
-                    </span>
+                    {{#if product.num_reviews '>' 0}}
+                        <span class="productView-reviewLink">
+                                <a href="{{product.url}}#product-reviews">
+                                    {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                                </a>
+                        </span>
+                    {{/if}}
                 {{/if}}
                 {{#if settings.show_product_reviews}}
                     <span class="productView-reviewLink">
                         <a href="{{product.url}}{{#if is_ajax}}#writeReview{{/if}}"
                            {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
-                           {{lang 'products.reviews.new'}}
+                            {{#if product.num_reviews '>' 0}}
+                               {{lang 'products.reviews.new'}}
+                            {{else}}
+                                Be the first
+                            {{/if}}
                         </a>
                     </span>
                     {{> components/products/modals/writeReview}}
@@ -238,6 +240,16 @@
             <li class="tab is-active">
                 <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
             </li>
+            {{#if product.videos.list.length}}
+                <li class="tab">
+                    <a class="tab-title" href="#tab-videos">Video{{#gt product.videos.list.length 1}}s{{/gt}}</a>
+                </li>
+            {{/if}}
+            {{#if product.reviews.total}}
+                <li class="tab">
+                    <a class="tab-title" href="#tab-reviews">{{product.reviews.total}} Review{{#gt product.review.total 1}}s{{/gt}}</a>
+                </li>
+            {{/if}}
             {{#if product.warranty}}
                 <li class="tab">
                     <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
@@ -249,6 +261,16 @@
                 {{{product.description}}}
                 {{{snippet 'product_description'}}}
             </div>
+            {{#if product.videos.list.length}}
+                <div class="tab-content" id="tab-videos">
+                    {{> components/products/video_tab_content product.videos}}
+                </div>
+            {{/if}}
+            {{#if product.reviews.total}}
+                <div class="tab-content" id="tab-reviews">
+                    {{> components/products/review_tab_content reviews=product.reviews product=product urls=urls}}
+                </div>
+            {{/if}}
            {{#if product.warranty}}
                <div class="tab-content" id="tab-warranty">
                    {{{product.warranty}}}
@@ -256,6 +278,7 @@
            {{/if}}
         </div>
     </article>
+
 </div>
 
 <div id="previewModal" class="modal modal--large" data-reveal>
