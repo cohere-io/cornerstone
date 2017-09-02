@@ -30,6 +30,11 @@
             font-weight: 600;
         }
 
+        .price--onSale {
+            color: #c00;
+        }
+
+
         @include breakpoint("small") {
             width: grid-calc(4, $total-columns);
         }

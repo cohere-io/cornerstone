@@ -170,6 +170,11 @@
 .heroCarousel-action {
     margin: 0;
 
+    &.button--primary {
+        background-color: #c00;
+        border-color: #900;
+    }
+
     @include breakpoint("medium") {
         margin-top: spacing("single");
     }

@@ -94,7 +94,9 @@
         font-size: inherit;
     }
     &.brand-name {
-        font-weight: 400;
+        font-size: 1.2em;
+        color: #333;
+        font-weight: 500;
     }
 }
 
@@ -116,9 +118,15 @@
 .card-body {
     text-align: center;
 
+    .price {
+        font-size: 1.2em;
+    }
     .price--withoutTax {
         color: $color-priceBase;
         font-weight: 600;
+    }
+    .price--onSale {
+        color: #c00;
     }
     @include breakpoint("small") {
         text-align: left;

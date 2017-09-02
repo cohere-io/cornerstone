@@ -79,15 +79,15 @@
 .sale-flag-sash {
     background: stencilColor("color_badge_product_sale_badges");
     color: stencilColor("color_text_product_sale_badges");
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
-    height: rem-calc(20px);
-    left: -30px;
-    line-height: rem-calc(16px);
+    height: rem-calc(16px);
+    left: -35px;
+    line-height: 1rem;
     padding-top: spacing("eighth") / 2;
     position: absolute;
     text-align: center;
-    top: 20px;
+    top: 15px;
     transform: rotate(-45deg);
     transition: 250ms ease;
     width: rem-calc(119px);
