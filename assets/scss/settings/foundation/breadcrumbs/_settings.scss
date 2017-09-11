@@ -51,7 +51,7 @@ $crumb-border-color:                null;
 $crumb-radius:                      null;
 
 // We use these to set various text styles for breadcrumbs.
-$crumb-font-size:                   fontSize("smallest");
+$crumb-font-size:                   fontSize("smaller");
 $crumb-font-color:                  stencilColor("color-textSecondary");
 $crumb-font-color-current:          stencilColor("color-textSecondary");
 $crumb-font-color-unavailable:      color("greys", "light");

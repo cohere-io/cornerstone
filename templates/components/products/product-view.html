@@ -1,3 +1,10 @@
+<div class="productView-brandWrapper">
+    <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
+    <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
+    </h2>
+</div>
+
+
 <div class="productView">
     {{#each product.reviews.messages}}
         {{#if error}}
@@ -8,13 +15,10 @@
         {{/if}}
     {{/each}}
 
+    <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+
     <section class="productView-details">
         <div class="productView-product">
-            <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
-
-            <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
-                <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
-            </h2>
             {{#if product.call_for_price}}
                 <p class="productView-price">
                     <span>{{product.call_for_price}}</span>
@@ -27,15 +31,13 @@
                     {{> components/common/login-for-pricing}}
                 {{/or}}
             </div>
-            <div class="productView-rating"{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}>
-                {{#if settings.show_product_rating}}
-                    {{#if product.num_reviews '>' 0}}
+            {{#if settings.show_product_reviews}}
+                <div class="productView-rating"{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}>
                         {{#if schema}}
                             <meta itemprop="ratingValue" content="{{product.rating}}">
                             <meta itemprop="ratingCount" content="{{product.num_reviews}}">
                             <meta itemprop="reviewCount" content="{{product.num_reviews}}">
                         {{/if}}
-                    {{/if}}
                     {{> components/products/ratings rating=product.rating}}
                     {{#if product.num_reviews '>' 0}}
                         <span class="productView-reviewLink">
@@ -44,23 +46,21 @@
                                 </a>
                         </span>
                     {{/if}}
-                {{/if}}
-                {{#if settings.show_product_reviews}}
                     <span class="productView-reviewLink">
-                        <a href="{{product.url}}{{#if is_ajax}}#writeReview{{/if}}"
+                    <a href="{{product.url}}{{#if is_ajax}}#writeReview{{/if}}"
                            {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
                             {{#if product.num_reviews '>' 0}}
                                {{lang 'products.reviews.new'}}
                             {{else}}
                                 Be the first
                             {{/if}}
-                        </a>
+                    </a>
                     </span>
-                    {{> components/products/modals/writeReview}}
-                {{/if}}
-            </div>
-            {{product.detail_messages}}
+                </div>
 
+                {{> components/products/modals/writeReview}}
+            {{/if}}
+            {{product.detail_messages}}
         </div>
     </section>
 
@@ -93,18 +93,10 @@
 
     <section class="productView-details">
 
-        <div id="short-description"></div>
+        <!--<div id="short-description"></div>-->
 
         <div class="productView-options">
             <dl class="productView-info">
-                <div class="productView-info-sku{{#unless product.sku}} u-hiddenVisually{{/unless}}">
-                    <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
-                    <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
-                </div>
-                <div class="productView-info-upc{{#unless product.upc}} u-hiddenVisually{{/unless}}">
-                    <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
-                    <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
-                </div>
                 {{#if product.condition}}
                 <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
                 <dd class="productView-info-value">{{product.condition}}</dd>
@@ -231,8 +223,20 @@
                 </form>
             {{/if}}
         </div>
+        <div class="productView-promise">100% Satisfaction Guaranteed</div>
+        <div class="productView-promise"><strong>FREE SHIPPING</strong> on orders over $75</div>
 
         {{{snippet 'product_details'}}}
+
+        <div class="productView-info-sku{{#unless product.sku}} u-hiddenVisually{{/unless}}">
+            <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
+            <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
+        </div>
+        <div class="productView-info-upc{{#unless product.upc}} u-hiddenVisually{{/unless}}">
+            <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
+            <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+        </div>
+
     </section>
 
     <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
@@ -242,12 +246,12 @@
             </li>
             {{#if product.videos.list.length}}
                 <li class="tab">
-                    <a class="tab-title" href="#tab-videos">Video{{#gt product.videos.list.length 1}}s{{/gt}}</a>
+                    <a class="tab-title" href="#tab-videos">Videos</a>
                 </li>
             {{/if}}
             {{#if product.reviews.total}}
                 <li class="tab">
-                    <a class="tab-title" href="#tab-reviews">{{product.reviews.total}} Review{{#gt product.review.total 1}}s{{/gt}}</a>
+                    <a class="tab-title" href="#tab-reviews">Reviews</a>
                 </li>
             {{/if}}
             {{#if product.warranty}}

@@ -55,7 +55,9 @@
         {{#if show_rating}}
             <p class="card-text" data-test-info-type="productRating">
                 <span class="rating--small">
-                    {{> components/products/ratings rating=rating}}
+                    {{#if rating '>' 0}}
+                        {{> components/products/ratings rating=rating}}
+                    {{/if}}
                 </span>
             </p>
         {{/if}}

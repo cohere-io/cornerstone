@@ -26,7 +26,7 @@
 
     @include breakpoint("medium") {
         width: 100%;
-        min-height: 300px;
+        min-height: 400px;
     }
 
     img {
@@ -82,7 +82,13 @@
 // Details
 // -----------------------------------------------------------------------------
 
+.productView-promise {
+    font-size: 1.2rem;
+    margin-bottom: spacing("half");
+}
+
 .productView-details {
+    //padding-top: 0.75rem;
     .productView-customFields {
         display: none;
     }
@@ -130,15 +136,22 @@
     }
 }
 
+.productView-brandWrapper {
+    position: relative;
+    top: 0;
+    right: 0;
+    float: right;
+}
+
 .productView-brand {
     color: $productView-brand-link-color;
     font-size: fontSize("smaller");
     margin: 0 0 spacing("half");
-    position: absolute;
-    top: 0;
-    right: 25px;
+    //position: absolute;
+    //top: 0;
+    text-align: right;
 
-    @include breakpoint("large") {
+    @include breakpoint("medium") {
         font-size: fontSize("small");
         margin: -(spacing("eighth")) 0 spacing("base");
     }
@@ -177,7 +190,7 @@
 }
 
 .productView-rating {
-    padding-bottom: 1.5rem;
+    //padding-bottom: 0.75rem;
 }
 .productView-reviewLink {
     display: inline-block;
@@ -238,8 +251,16 @@
 }
 
 .productView-info-sku {
+    margin-top: spacing("single");
+    color: $color-greyLight;
     float: none;
     display: inline-block;
+    dt {
+        float: left;
+    }
+    dd {
+        float: left;
+    }
 }
 
 .productView-info-name {
@@ -298,7 +319,7 @@
 
     .form-field {
         font-size: 0; // 2
-        margin-bottom: 2rem;
+        margin-bottom: 0;
 
         // scss-lint:disable SelectorDepth, NestingDepth
         > .form-checkbox + .form-label,
@@ -322,7 +343,7 @@
 
         @include breakpoint("small") {
             float: left;
-            padding: 0 remCalc(10);
+            //padding: 0 remCalc(10);
             width: 50%;
         }
 
@@ -351,7 +372,12 @@
             background-color: #c00;
             border-color: #900;
             font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: spacing("half");
         }
+    }
+    .productView-info-name {
+        font-size: 0.9em;
     }
 }
 

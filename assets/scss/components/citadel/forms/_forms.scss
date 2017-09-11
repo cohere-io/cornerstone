@@ -135,8 +135,10 @@
 .form-label--alternate {
     font-family: "Fira Sans Condensed",sans-serif;
     font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: spacing("half");
+    font-size: .9rem;
+    color: $color-grey;
+    margin-top: spacing("half");
+    margin-bottom: spacing("quarter");
 }
 
 .form-select--date {

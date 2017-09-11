@@ -11,10 +11,13 @@
     //margin-left: -(spacing("base"));
     //margin-right: -(spacing("base"));
 
+    clear: both;
+    padding-top: 0;
+
     h1 {
         font-size: 28px;
-        font-weight: 600;
-        margin: spacing("half") 0 spacing("half");
+        font-weight: 500;
+        margin: 0 0 spacing("double");
     }
     .price--rrp {
         color: $color-greyMedium;
@@ -24,9 +27,19 @@
         color: $color-priceBase;
     }
 
+    .price--onSale {
+        color: #c00;
+    }
+
     .modal & {
         padding-bottom: 0;
         padding-top: 0;
+    }
+    .form-select--small {
+        background-color: #efefef;
+        border: 1px solid #cccccc;
+        border-radius: 0;
+        margin-bottom: spacing("half");
     }
 }
 
@@ -42,19 +55,19 @@
     padding-right: spacing("base");
 
     @include breakpoint("medium") {
-        width: grid-calc(6, $total-columns);
+        width: grid-calc(7, $total-columns);
     }
 }
 
 .productView-details {
     @include grid-column(12);
-    padding-left: spacing("base");
+    padding-left: 3rem;
     padding-right: spacing("base");
 
     @include breakpoint("medium") {
         clear: right;
         float: right;
-        width: grid-calc(6, $total-columns);
+        width: grid-calc(5, $total-columns);
     }
 }
 

@@ -57,6 +57,10 @@
     }
 }
 
+.tabs-contents {
+    max-width: layout("max") + ($container-padding * 4);
+}
+
 
 //
 // State for when tab-content has js generated of calculated content, like carousel

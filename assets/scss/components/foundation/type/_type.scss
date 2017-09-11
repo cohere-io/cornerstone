@@ -37,10 +37,11 @@ cite {
 }
 
 .page-heading {
+    clear: both;
     font-size: $h1-font-size;
     font-weight: 600;
     color: $color-brandPrimary;
-    margin: spacing("half") 0 spacing("half");
+    margin: spacing("single") 0 spacing("half");
 }
 
 
