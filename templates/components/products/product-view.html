@@ -32,11 +32,13 @@
                 {{/or}}
             </div>
             {{#if settings.show_product_reviews}}
-                <div class="productView-rating"{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}>
+                <div class="productView-rating"{{#if schema}}{{#if product.rating}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}{{/if}}>
                         {{#if schema}}
+                            {{#if product.rating}}
                             <meta itemprop="ratingValue" content="{{product.rating}}">
                             <meta itemprop="ratingCount" content="{{product.num_reviews}}">
                             <meta itemprop="reviewCount" content="{{product.num_reviews}}">
+                            {{/if}}
                         {{/if}}
                     {{> components/products/ratings rating=product.rating}}
                     {{#if product.num_reviews '>' 0}}
@@ -224,7 +226,7 @@
             {{/if}}
         </div>
         <div class="productView-promise">100% Satisfaction Guaranteed</div>
-        <div class="productView-promise"><strong>FREE SHIPPING</strong> on orders over $75</div>
+        <div class="productView-promise"><strong>FREE SHIPPING</strong> on orders over $150</div>
 
         {{{snippet 'product_details'}}}
 
@@ -249,11 +251,6 @@
                     <a class="tab-title" href="#tab-videos">Videos</a>
                 </li>
             {{/if}}
-            {{#if product.reviews.total}}
-                <li class="tab">
-                    <a class="tab-title" href="#tab-reviews">Reviews</a>
-                </li>
-            {{/if}}
             {{#if product.warranty}}
                 <li class="tab">
                     <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
@@ -270,11 +267,6 @@
                     {{> components/products/video_tab_content product.videos}}
                 </div>
             {{/if}}
-            {{#if product.reviews.total}}
-                <div class="tab-content" id="tab-reviews">
-                    {{> components/products/review_tab_content reviews=product.reviews product=product urls=urls}}
-                </div>
-            {{/if}}
            {{#if product.warranty}}
                <div class="tab-content" id="tab-warranty">
                    {{{product.warranty}}}
@@ -283,6 +275,18 @@
         </div>
     </article>
 
+    {{#if product.reviews.total}}
+        <article class="productView-description">
+            <ul class="tabs">
+                <li class="tab is-active">
+                    <a name="product-reviews" class="tab-title">Reviews</a>
+                </li>
+            </ul>
+            <div class="tab-content is-active" id="tab-reviews">
+                {{> components/products/review_tab_content reviews=product.reviews product=product urls=urls}}
+            </div>
+        </article>
+    {{/if}}
 </div>
 
 <div id="previewModal" class="modal modal--large" data-reveal>

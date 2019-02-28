@@ -2,11 +2,7 @@
     <article data-section-type="footer-webPages">
         <h5 class="amp-footer-heading">{{lang 'footer.navigate'}}</h5>
         <ul class="amp-footer-list">
-            {{#each pages}}
-            <li>
-                <a href="{{url}}">{{name}}</a>
-            </li>
-            {{/each}}
+          <li><a href="/contact-us-1">Contact Us</a></li>
             <li>
                 <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
             </li>
@@ -38,10 +34,11 @@
 
     <article data-section-type="storeInfo">
         <h5 class="amp-footer-heading">{{lang 'footer.info'}}</h5>
-        <address>{{nl2br settings.address}}</address>
-        {{#if settings.phone_number}}
-            <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
-        {{/if}}
+        <ul class="amp-footer-list">
+          <li><a target="_blank" href="https://www.flickr.com/photos/glorycycles/">Gallery</a></li>
+          <li><a href="/ride-notes">Ride Notes</a></li>
+          <li><a href="/workshop-notes">Workshop Notes</a><li>
+        </ul>
     </article>
     <article>
         {{#if theme_settings.show_powered_by}}
